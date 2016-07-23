@@ -575,7 +575,7 @@
   };
 
   /**
-   * Binds to elements with the data-event='firechat-user-(private)-invite' and
+   * Binds to elements with the data-event='firechat-user-()-invite' and
    * handles invitations as well as room creation and entering.
    */
   FirechatUI.prototype._bindForChatInvites = function() {
@@ -585,7 +585,7 @@
               userId = $this.closest('[data-user-id]').data('user-id'),
               roomId = $this.closest('[data-room-id]').data('room-id'),
               userName = $this.closest('[data-user-name]').data('user-name'),
-              template = FirechatDefaultTemplates["templates/prompt-invite-private.html"],
+              template = FirechatDefaultTemplates["templates/prompt-invite-.html"],
               $prompt;
 
           self._chat.getRoom(roomId, function(room) {
@@ -612,72 +612,21 @@
             return false;
           });
           return false;
-        },
-        renderPrivateInvitePrompt = function(event) {
-          var $this = $(this),
-              userId = $this.closest('[data-user-id]').data('user-id'),
-              userName = $this.closest('[data-user-name]').data('user-name'),
-              template = FirechatDefaultTemplates["templates/prompt-invite-private.html"],
-              $prompt;
-
-          if (userId && userName) {
-            $prompt = self.prompt('Private Invite', template({
-              userName: userName,
-              roomName: 'Private Chat'
-            }));
-
-            $prompt.find('a.close').click(function() {
-              $prompt.remove();
-              return false;
-            });
-
-            $prompt.find('[data-toggle=decline]').click(function() {
-              $prompt.remove();
-              return false;
-            });
-
-            $prompt.find('[data-toggle=accept]').first().click(function() {
-              $prompt.remove();
-              var roomName = 'Private Chat';
-              self._chat.createRoom(roomName, 'private', function(roomId) {
-                self._chat.inviteUser(userId, roomId, roomName);
-              });
-              return false;
-            });
-          }
-          return false;
         };
 
-    $(document).delegate('[data-event="firechat-user-chat"]', 'click', renderPrivateInvitePrompt);
     $(document).delegate('[data-event="firechat-user-invite"]', 'click', renderInvitePrompt);
   };
 
   /**
-   * Binds to room dropdown button, menu items, and create room button.
+   * Binds to room dropdown button and menu items.
    */
   FirechatUI.prototype._bindForRoomListing = function() {
     var self = this,
-        $createRoomPromptButton = $('#firechat-btn-create-room-prompt'),
-        $createRoomButton = $('#firechat-btn-create-room'),
         renderRoomList = function(event) {
           var type = $(this).data('room-type');
 
           self.sortListLexicographically('#firechat-room-list');
         };
-
-    // Handle click of the create new room prompt-button.
-    $createRoomPromptButton.bind('click', function(event) {
-      self.promptCreateRoom();
-      return false;
-    });
-
-    // Handle click of the create new room button.
-    $createRoomButton.bind('click', function(event) {
-      var roomName = $('#firechat-input-room-name').val();
-      $('#firechat-prompt-create-room').remove();
-      self._chat.createRoom(roomName);
-      return false;
-    });
   };
 
   /**
@@ -1080,46 +1029,6 @@
     minutes = (minutes.length < 2) ? '0' + minutes : minutes;
     return '' + hours + ':' + minutes + ampm;
   };
-
-  /**
-   * Launch a prompt to allow the user to create a new room.
-   */
-  FirechatUI.prototype.promptCreateRoom = function() {
-    var self = this;
-    var template = FirechatDefaultTemplates["templates/prompt-create-room.html"];
-
-    var $prompt = this.prompt('Create Public Room', template({
-      maxLengthRoomName: this.maxLengthRoomName,
-      isModerator: self._chat.userIsModerator()
-    }));
-    $prompt.find('a.close').first().click(function() {
-      $prompt.remove();
-      return false;
-    });
-
-
-    $prompt.find('[data-toggle=submit]').first().click(function() {
-      var name = $prompt.find('[data-input=firechat-room-name]').first().val();
-      if (name !== '') {
-        self._chat.createRoom(name, 'public');
-        $prompt.remove();
-      }
-      return false;
-    });
-
-    $prompt.find('[data-input=firechat-room-name]').first().focus();
-    $prompt.find('[data-input=firechat-room-name]').first().bind('keydown', function(e) {
-      if (e.which === 13) {
-        var name = $prompt.find('[data-input=firechat-room-name]').first().val();
-        if (name !== '') {
-          self._chat.createRoom(name, 'public');
-          $prompt.remove();
-          return false;
-        }
-      }
-    });
-  };
-
   /**
    * Inner method to launch a prompt given a specific title and HTML content.
    * @param    {string}    title

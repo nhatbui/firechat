@@ -282,34 +282,6 @@
     this._addEventCallback(eventType, cb);
   };
 
-  // Create and automatically enter a new chat room.
-  Firechat.prototype.createRoom = function(roomName, roomType, callback) {
-    var self = this,
-        newRoomRef = this._roomRef.push();
-
-    var newRoom = {
-      id: newRoomRef.key(),
-      name: roomName,
-      type: roomType || 'public',
-      createdByUserId: this._userId,
-      createdAt: Firebase.ServerValue.TIMESTAMP
-    };
-
-    if (roomType === 'private') {
-      newRoom.authorizedUsers = {};
-      newRoom.authorizedUsers[this._userId] = true;
-    }
-
-    newRoomRef.set(newRoom, function(error) {
-      if (!error) {
-        self.enterRoom(newRoomRef.key());
-      }
-      if (callback) {
-        callback(newRoomRef.key());
-      }
-    });
-  };
-
   // Enter a chat room.
   Firechat.prototype.enterRoom = function(roomId) {
     var self = this;
