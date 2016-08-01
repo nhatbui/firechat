@@ -10,7 +10,7 @@ It works out of the box, and is easily extended.
 
 Visit [nhatbui.gitlab.io/whatpomade](https://nhatbui.gitlab.io/whatpomade) to see a live demo of Fireslack. (REQUIRES FB LOGIN!)
 
-[![A screenshot of Jenny and Lexi the cat chatting on the Firechat demo](screenshot.png)](https://firechat.firebaseapp.com/)
+![Fireslack demo](screenshot.png)
 
 ## Setup
 
