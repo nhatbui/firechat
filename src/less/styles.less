@@ -598,11 +598,22 @@
     overflow: auto;
     vertical-align: top;
   }
+
+  .message .message-actions {
+    display: none;
+  }
+
   .message {
     color: #333;
     padding: 3px 5px;
     &.highlighted {
       background-color: #d9edf7;
+    }
+    &:hover {
+      background-color: #f9f9f9;
+      .message-actions {
+        display: block;
+      }
     }
   }
   .message .name {
@@ -612,6 +623,7 @@
   .message.message-self {
     color: #2675ab;
   }
+/*
   .message:nth-child(odd) {
     background-color: #f9f9f9;
     &.highlighted {
@@ -621,6 +633,7 @@
       background-color: #effafc;
     }
   }
+*/
   .message-content {
     word-wrap: break-word;
     padding-right: 45px;
