@@ -377,7 +377,7 @@
     position: absolute;
     z-index: 1001;
     background-color: #ffffff;
-    .box-shadow(0 5px 10px rgba(0, 0, 0, 0.45)); 
+    .box-shadow(0 5px 10px rgba(0, 0, 0, 0.45));
   }
   .prompt-header {
     padding: 4px 8px;
@@ -435,12 +435,14 @@
   font-size: 12px;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
   background-color: #f5f5f5;
+  /*
   background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
   background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
   background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
   background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
   background-repeat: repeat-x;
+  */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
   border-color: #e6e6e6 #e6e6e6 #bfbfbf;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
@@ -599,7 +601,6 @@
   .message {
     color: #333;
     padding: 3px 5px;
-    border-bottom: 1px solid #ccc;
     &.highlighted {
       background-color: #d9edf7;
     }
@@ -630,6 +631,11 @@
   .message.message-notification .message-content {
    font-style: italic;
   }
+
+  .message #message-time {
+    color: #9e9ea6;
+  }
+
   ul::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 7px;
@@ -646,11 +652,11 @@
     height: 435px;
   }
   #firechat-tab-list {
-    background-color: #ffffff;
+    background-color: transparent;
   }
   #firechat-tab-content {
     width: 100%;
-    background-color: #ffffff;
+    background-color: transparent;
   }
   .tab-pane-menu {
     border: 1px solid #ccc;
