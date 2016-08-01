@@ -1,21 +1,28 @@
-# Firechat
+# Fireslack
 
 [![Version](https://badge.fury.io/gh/firebase%2Ffirechat.svg)](http://badge.fury.io/gh/firebase%2Ffirechat)
 
-Firechat is a simple, extensible chat widget powered by [Firebase](https://www.firebase.com/?utm_source=firechat).
+Fireslack is a simple, extensible chat widget powered by [Firebase](https://www.firebase.com/?utm_source=firechat) and imitating [Slack's](https://slack.com/) UI.
 It is intended to serve as a concise, documented foundation for chat products built on Firebase.
 It works out of the box, and is easily extended.
 
 ## Live Demo
 
-Visit [firechat.firebaseapp.com](https://firechat.firebaseapp.com/) to see a live demo of Firechat.
+Visit [nhatbui.gitlab.io/whatpomade](https://nhatbui.gitlab.io/whatpomade) to see a live demo of Fireslack. (REQUIRES FB LOGIN!)
 
 [![A screenshot of Jenny and Lexi the cat chatting on the Firechat demo](screenshot.png)](https://firechat.firebaseapp.com/)
 
 ## Setup
 
 Firechat uses [Firebase](https://www.firebase.com/?utm_source=firechat) as a backend, so it requires no server-side
-code. It can be added to any web app by including a few JavaScript files
+code. It can be added to any web app by including a few JavaScript files, after building them.
+
+In the root directory, build the project with [Grunt](http://gruntjs.com/).
+```
+grunt --force
+```
+
+The output files should be in ```dist/```.
 
 ```HTML
 <!-- jQuery -->
@@ -25,8 +32,8 @@ code. It can be added to any web app by including a few JavaScript files
 <script src='https://cdn.firebase.com/js/client/2.1.0/firebase.js'></script>
 
 <!-- Firechat -->
-<link rel='stylesheet' href='https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.css' />
-<script src='https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.js'></script>
+<link rel='stylesheet' href='dist/firechat.min.css' />
+<script src='dist/firechat.min.js'></script>
 ```
 
 giving your users a way to authenticate
