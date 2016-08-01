@@ -15,7 +15,14 @@ Visit [nhatbui.gitlab.io/whatpomade](https://nhatbui.gitlab.io/whatpomade) to se
 ## Setup
 
 Firechat uses [Firebase](https://www.firebase.com/?utm_source=firechat) as a backend, so it requires no server-side
-code. It can be added to any web app by including a few JavaScript files
+code. It can be added to any web app by including a few JavaScript files, after building them.
+
+In the root directory, build the project with [Grunt](http://gruntjs.com/).
+```
+grunt --force
+```
+
+The output files should be in ```dist/```.
 
 ```HTML
 <!-- jQuery -->
@@ -25,8 +32,8 @@ code. It can be added to any web app by including a few JavaScript files
 <script src='https://cdn.firebase.com/js/client/2.1.0/firebase.js'></script>
 
 <!-- Firechat -->
-<link rel='stylesheet' href='https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.css' />
-<script src='https://cdn.firebase.com/libs/firechat/2.0.1/firechat.min.js'></script>
+<link rel='stylesheet' href='dist/firechat.min.css' />
+<script src='dist/firechat.min.js'></script>
 ```
 
 giving your users a way to authenticate
