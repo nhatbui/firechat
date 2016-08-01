@@ -1,14 +1,14 @@
-# Firechat
+# Fireslack
 
 [![Version](https://badge.fury.io/gh/firebase%2Ffirechat.svg)](http://badge.fury.io/gh/firebase%2Ffirechat)
 
-Firechat is a simple, extensible chat widget powered by [Firebase](https://www.firebase.com/?utm_source=firechat).
+Fireslack is a simple, extensible chat widget powered by [Firebase](https://www.firebase.com/?utm_source=firechat) and imitating [Slack's](https://slack.com/) UI.
 It is intended to serve as a concise, documented foundation for chat products built on Firebase.
 It works out of the box, and is easily extended.
 
 ## Live Demo
 
-Visit [firechat.firebaseapp.com](https://firechat.firebaseapp.com/) to see a live demo of Firechat.
+Visit [nhatbui.gitlab.io/whatpomade](https://nhatbui.gitlab.io/whatpomade) to see a live demo of Fireslack. (REQUIRES FB LOGIN!)
 
 [![A screenshot of Jenny and Lexi the cat chatting on the Firechat demo](screenshot.png)](https://firechat.firebaseapp.com/)
 
